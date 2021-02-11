@@ -1,15 +1,19 @@
-import './App.css';
+import React, { Component } from 'react';
+import './styles/App.css';
+import SelectPictures from './components/SelectPictures';
 
-function App() {
+class App extends Component {
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          
-        </p>
-      </header>
+    <div>
+      <div className = "nav-bar">
+      </div>
+      <div className = "play-board">
+        <SelectPictures/>
+      </div>
     </div>
   );
+  }
 }
 
 export default App;
