@@ -4,13 +4,16 @@ import React from 'react';
 const DisplayPictures = (props) => {
 
   const { 
-    testImage
+    imageArray
   } = props;
+
+
   
   return (
 
     <div>
-       <img src = {testImage} alt = 'airplant'></img>
+       <img src = {imageArray[0]}></img>
+       <img src = {imageArray[3]}></img>
       </div>
   );
 }
