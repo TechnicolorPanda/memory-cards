@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../styles/DisplayPictures.css';
+import '../styles/displayPictures.css';
 
 const DisplayPictures = (props) => {
 
@@ -11,10 +11,25 @@ const DisplayPictures = (props) => {
   
   return (
 
-    <div>
-       <img src = {imageArray[0]}></img>
-       <img src = {imageArray[3]}></img>
+    <div class = 'content'>
+      <div class = 'row'>
+        <div class = 'column'>
+          <img src = {imageArray[0]}></img>
+        </div>
+        <div class = 'column'>
+         <img src = {imageArray[3]}></img>
+        </div>
+        <div class = 'column'>
+          <img src = {imageArray[6]}></img>
+        </div>
+        <div class = 'column'>
+         <img src = {imageArray[11]}></img>
+        </div>
+        <div class = 'column'>
+         <img src = {imageArray[14]}></img>
+        </div>
       </div>
+    </div>
   );
 }
 
