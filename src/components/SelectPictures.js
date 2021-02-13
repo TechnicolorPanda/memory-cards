@@ -4,7 +4,7 @@ import DisplayPictures from './DisplayPictures';
 const SelectPictures = () => {
 // populates array with images with which to select
 
-const [pickImage, setPickImage] = useState('');
+const [pickImage, setPickImage] = useState([]);
 
   const airplant = ('./images/airplant.jpeg');
   const bamboo = ('./images/bamboo.jpeg');
@@ -48,8 +48,7 @@ const [pickImage, setPickImage] = useState('');
     for(let i=0; i<=4; i++) {
       let argumentNumber = (Math.floor(Math.random() * 15));
       console.log(argumentNumber);
-      setPickImage(argumentNumber);
-      console.log(pickImage);
+      setPickImage(pickImage => pickImage.concat(argumentNumber));
     }
   },[])
 
@@ -58,6 +57,7 @@ const [pickImage, setPickImage] = useState('');
     <div>
       <DisplayPictures
         imageArray = {imageArray}
+        pickImage = {pickImage}
       />
     </div>
   )

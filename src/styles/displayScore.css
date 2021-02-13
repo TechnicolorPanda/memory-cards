@@ -79,8 +79,9 @@ img {
     display: flex;
   }
 
-  .current-score {
-      text-align: left;
+  #current-score {
+    position: absolute;
+    left: 2rem;
   }
 
   #high-score {
