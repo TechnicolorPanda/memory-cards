@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import DisplayPictures from './DisplayPictures';
 
 const SelectPictures = () => {
-// populates array with images with which to select
 
 const [pickImage, setPickImage] = useState([]);
+
+//   const [selectedImages, setSelectedImages] = useState([]);
+
+//   const [argumentNumber, setArgumentNumber] = useState('');
+
+// populates array with images with which to select
 
   const airplant = ('./images/airplant.jpeg');
   const bamboo = ('./images/bamboo.jpeg');
@@ -15,10 +20,10 @@ const [pickImage, setPickImage] = useState([]);
   const monstera = ('./images/monstera.jpeg');
   const pilea = ('./images/pilea.jpeg');
   const pothos = ('./images/pothos.jpeg');
-  const rattlesnake = ('./images/rattlesnake.jpeg');
+  const anthurium = ('./images/anthurium.jpeg');
   const rubberPlant = ('./images/rubberplant.jpeg');
   const scindapsis = ('./images/scindapsis.jpeg');
-  const snakePlant = ('./images/snakePlant.jpeg');
+  const plant = ('./images/plant.jpeg');
   const stromanthe = ('./images/stromanthe.jpeg');
   const zzPlant = ('./images/zzplant.jpeg');
   const imageArray = [
@@ -31,26 +36,22 @@ const [pickImage, setPickImage] = useState([]);
     monstera,
     pilea,
     pothos,
-    rattlesnake,
+    anthurium,
     rubberPlant,
     scindapsis,
-    snakePlant,
+    plant,
     stromanthe,
     zzPlant,
   ];
-  // defines states used
-
-//   const [selectedImages, setSelectedImages] = useState([]);
-
-//   const [argumentNumber, setArgumentNumber] = useState('');
 
   useEffect(() => {
-    for(let i=0; i<=4; i++) {
-      let argumentNumber = (Math.floor(Math.random() * 15));
-      console.log(argumentNumber);
-      setPickImage(pickImage => pickImage.concat(argumentNumber));
-    }
-  },[])
+      for(let i=0; i < 5; i++) {
+        let argumentNumber = (Math.floor(Math.random() * 15));
+        console.log(argumentNumber);
+        setPickImage(pickImage => pickImage.concat(argumentNumber));
+        setPickImage(pickImage => [...new Set(pickImage)]);
+      }
+   },[])
 
   
   return (
