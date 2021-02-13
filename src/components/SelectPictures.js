@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DisplayPictures from './DisplayPictures';
 
 const SelectPictures = () => {
+// populates array with images with which to select
+
+const [pickImage, setPickImage] = useState('');
 
   const airplant = ('./images/airplant.jpeg');
   const bamboo = ('./images/bamboo.jpeg');
@@ -18,7 +21,7 @@ const SelectPictures = () => {
   const snakePlant = ('./images/snakePlant.jpeg');
   const stromanthe = ('./images/stromanthe.jpeg');
   const zzPlant = ('./images/zzplant.jpeg');
-  const [imageArray, setImageArray] = useState([
+  const imageArray = [
     airplant,
     bamboo,
     begonia,
@@ -34,11 +37,23 @@ const SelectPictures = () => {
     snakePlant,
     stromanthe,
     zzPlant,
-  ]);
-  const [selectedImages, setSelectedImages] = useState([]);
+  ];
+  // defines states used
 
-  console.log('select pictures');
+//   const [selectedImages, setSelectedImages] = useState([]);
 
+//   const [argumentNumber, setArgumentNumber] = useState('');
+
+  useEffect(() => {
+    for(let i=0; i<=4; i++) {
+      let argumentNumber = (Math.floor(Math.random() * 15));
+      console.log(argumentNumber);
+      setPickImage(argumentNumber);
+      console.log(pickImage);
+    }
+  },[])
+
+  
   return (
     <div>
       <DisplayPictures
