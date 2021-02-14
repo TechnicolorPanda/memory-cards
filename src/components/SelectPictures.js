@@ -4,6 +4,7 @@ import DisplayPictures from './DisplayPictures';
 const SelectPictures = () => {
 
 const [pickImage, setPickImage] = useState([]);
+const [clickImage, setClickImage] = useState(false);
 
 //   const [selectedImages, setSelectedImages] = useState([]);
 
@@ -45,13 +46,22 @@ const [pickImage, setPickImage] = useState([]);
   ];
 
   useEffect(() => {
+      setPickImage(pickImage => pickImage.splice(0, 5));
+      setClickImage(false);
       for(let i=0; i < 5; i++) {
         let argumentNumber = (Math.floor(Math.random() * 15));
         console.log(argumentNumber);
         setPickImage(pickImage => pickImage.concat(argumentNumber));
         setPickImage(pickImage => [...new Set(pickImage)]);
       }
-   },[])
+   },[clickImage])
+
+   const addImage = (event) => {
+       console.log('add image');
+       const selected = event.target.getAttribute('data-index');
+       console.log(selected);
+       setClickImage(true);
+   }
 
   
   return (
@@ -59,6 +69,7 @@ const [pickImage, setPickImage] = useState([]);
       <DisplayPictures
         imageArray = {imageArray}
         pickImage = {pickImage}
+        selectImage = {addImage.bind(this)}
       />
     </div>
   )
