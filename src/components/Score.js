@@ -7,10 +7,12 @@ const Score = (props) => {
     currentScore,
   } = props;
 
-const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
-console.log(currentScore);
-    
+  if (currentScore > highScore) {
+    setHighScore(currentScore);
+  }
+  
   return (
     <div>
       <DisplayScore
