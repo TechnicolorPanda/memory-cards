@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import DisplayPictures from './DisplayPictures';
+import Score from './Score';
 
 const SelectPictures = () => {
 
 const [pickImage, setPickImage] = useState([]);
-const [clickImage, setClickImage] = useState(false);
-
-//   const [selectedImages, setSelectedImages] = useState([]);
+const [usedImages, setUsedImages] = useState([]);
+const [currentScore, setCurrentScore] = useState(0);
 
 //   const [argumentNumber, setArgumentNumber] = useState('');
 
@@ -47,21 +47,31 @@ const [clickImage, setClickImage] = useState(false);
 
   useEffect(() => {
       setPickImage(pickImage => pickImage.splice(0, 5));
-      setClickImage(false);
       for(let i=0; i < 5; i++) {
         let argumentNumber = (Math.floor(Math.random() * 15));
         console.log(argumentNumber);
         setPickImage(pickImage => pickImage.concat(argumentNumber));
-        setPickImage(pickImage => [...new Set(pickImage)]);
-      }
-   },[clickImage])
 
-   const addImage = (event) => {
-       console.log('add image');
-       const selected = event.target.getAttribute('data-index');
-       console.log(selected);
-       setClickImage(true);
-   }
+        // eliminates duplicate images
+        setPickImage(pickImage => [...new Set(pickImage)]);
+        console.log(usedImages);
+      }
+   },[currentScore])
+
+  // determines if image selected has previously been selected
+
+  const addImage = (event) => {
+    const newPicture = event.target.src;
+
+    setUsedImages(usedImages => usedImages.concat(event.target.src));
+    for(let i = 0; i < usedImages.length-1; i++) {
+      if (newPicture === usedImages[i]) {
+        setCurrentScore(-1);
+        console.log('choice false');
+      }
+    }
+    setCurrentScore(currentScore => (currentScore + 1));
+  }
 
   
   return (
@@ -70,6 +80,9 @@ const [clickImage, setClickImage] = useState(false);
         imageArray = {imageArray}
         pickImage = {pickImage}
         selectImage = {addImage.bind(this)}
+      />
+      <Score
+        currentScore = {currentScore}
       />
     </div>
   )

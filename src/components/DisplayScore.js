@@ -8,10 +8,15 @@ const DisplayPictures = (props) => {
     highScore,
   } = props;
 
+  console.log('current score = ' + currentScore);
+  console.log(highScore);
+
+  // TODO: current score is correct but does not print on screen?
+
   return (
 
-    <div class = 'content'>
-      <div class = 'row' id = 'scoreBar'>
+    <div className = 'content'>
+      <div className = 'row' id = 'scoreBar'>
         <p id = 'current-score'>Score = {currentScore}</p>
         <p id = 'high-score'>High Score = {highScore}</p>
       </div>
