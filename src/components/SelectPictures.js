@@ -58,6 +58,14 @@ const [currentScore, setCurrentScore] = useState(0);
       }
    },[currentScore])
 
+  // resets game after an incorrect selection
+
+  function tryAgain() {
+    console.log('try again');
+    setCurrentScore(-1);
+    setUsedImages([]);
+  }
+
   // determines if image selected has previously been selected
 
   const addImage = (event) => {
@@ -66,9 +74,8 @@ const [currentScore, setCurrentScore] = useState(0);
     setUsedImages(usedImages => usedImages.concat(event.target.src));
     for(let i = 0; i < usedImages.length-1; i++) {
       if (newPicture === usedImages[i]) {
-        setCurrentScore(-1);
-        console.log('choice false');
-      }
+        tryAgain();
+      } 
     }
     setCurrentScore(currentScore => (currentScore + 1));
   }
