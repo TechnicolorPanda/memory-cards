@@ -4,13 +4,13 @@ import Score from './Score';
 
 const SelectPictures = () => {
 
-const [pickImage, setPickImage] = useState([]);
-const [usedImages, setUsedImages] = useState([]);
-const [currentScore, setCurrentScore] = useState(0);
+  // sets states
 
-//   const [argumentNumber, setArgumentNumber] = useState('');
+  const [pickImage, setPickImage] = useState([]);
+  const [usedImages, setUsedImages] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
 
-// populates array with images with which to select
+  // populates array with images with which to select
 
   const airplant = ('./images/airplant.jpeg');
   const bamboo = ('./images/bamboo.jpeg');
@@ -45,51 +45,51 @@ const [currentScore, setCurrentScore] = useState(0);
     zzPlant,
   ];
 
+  // generates 5 random pictures
+  // TODO: add more images if duplicates are eliminated
+
   useEffect(() => {
+     console.log('set pick image');
+
       setPickImage(pickImage => pickImage.splice(0, 5));
       for(let i=0; i < 5; i++) {
         let argumentNumber = (Math.floor(Math.random() * 15));
-        console.log(argumentNumber);
         setPickImage(pickImage => pickImage.concat(argumentNumber));
 
         // eliminates duplicate images
         setPickImage(pickImage => [...new Set(pickImage)]);
-        console.log(usedImages);
       }
    },[currentScore])
 
   // resets game after an incorrect selection
 
   function tryAgain() {
-    console.log('try again');
-    setCurrentScore(-1);
     setUsedImages([]);
+    setCurrentScore(-1);
   }
 
   // determines if image selected has previously been selected
 
   const addImage = (event) => {
     const newPicture = event.target.src;
-
     setUsedImages(usedImages => usedImages.concat(event.target.src));
     for(let i = 0; i < usedImages.length-1; i++) {
       if (newPicture === usedImages[i]) {
         tryAgain();
-      } 
+      }
     }
     setCurrentScore(currentScore => (currentScore + 1));
   }
 
-  
   return (
     <div>
+      <Score
+        currentScore = {currentScore}
+      />
       <DisplayPictures
         imageArray = {imageArray}
         pickImage = {pickImage}
         selectImage = {addImage.bind(this)}
-      />
-      <Score
-        currentScore = {currentScore}
       />
     </div>
   )

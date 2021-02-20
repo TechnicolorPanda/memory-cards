@@ -75,17 +75,17 @@ img {
     font-family: sans-serif, 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-  .row {
-    display: flex;
+  .content {
+    width: 100%;
   }
 
   #current-score {
     position: absolute;
-    left: 2rem;
+    left: 4rem;
   }
 
   #high-score {
     position: absolute;
-    right: 2rem;
+    right: 4rem;
   }
   

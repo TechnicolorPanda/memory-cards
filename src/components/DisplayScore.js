@@ -1,21 +1,21 @@
 import React from 'react';
 import '../styles/displayScore.css';
 
-const DisplayPictures = (props) => {
+const DisplayScore = (props) => {
 
   const { 
     currentScore,
     highScore,
   } = props;
 
-  console.log('current score = ' + currentScore);
   console.log('high score = ' + highScore);
+  console.log('display current score = ' + currentScore);
 
   // TODO: current score is correct but does not print on screen?
 
   return (
     <div className = 'content'>
-      <div className = 'row' id = 'scoreBar'>
+      <div className = 'nav-bar' id = 'scoreBar'>
         <p id = 'current-score'>Score: {currentScore}</p>
         <p id = 'high-score'>High Score: {highScore}</p>
       </div>
@@ -23,4 +23,4 @@ const DisplayPictures = (props) => {
   );
 }
 
-export default DisplayPictures;
+export default DisplayScore;

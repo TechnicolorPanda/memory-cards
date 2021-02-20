@@ -11,10 +11,9 @@ const DisplayPictures = (props) => {
   } = props;
 
   return (
-
     <div className = 'content'>
       <div className = 'row'>
-        {props.pickImage.map((number) =>( 
+        {pickImage.map((number) => ( 
           <div className = 'column' key = {uniqid()}>
             <button  onClick = {selectImage}>
               <img src = {imageArray[number]}></img>
