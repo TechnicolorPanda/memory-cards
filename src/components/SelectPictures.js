@@ -45,21 +45,23 @@ const SelectPictures = () => {
     zzPlant,
   ];
 
+  function eliminateDuplicates() {
+    for(let i=0; i < 5; i++) {
+      let argumentNumber = (Math.floor(Math.random() * 15));
+      setPickImage(pickImage => pickImage.concat(argumentNumber));
+
+      // eliminates duplicate images
+      setPickImage(pickImage => [...new Set(pickImage)]);
+    }
+  }
+
   // generates 5 random pictures
   // TODO: add more images if duplicates are eliminated
 
   useEffect(() => {
-     console.log('set pick image');
-
-      setPickImage(pickImage => pickImage.splice(0, 5));
-      for(let i=0; i < 5; i++) {
-        let argumentNumber = (Math.floor(Math.random() * 15));
-        setPickImage(pickImage => pickImage.concat(argumentNumber));
-
-        // eliminates duplicate images
-        setPickImage(pickImage => [...new Set(pickImage)]);
-      }
-   },[currentScore])
+    setPickImage(pickImage => pickImage.splice(0, 5));
+    eliminateDuplicates();
+  },[currentScore])
 
   // resets game after an incorrect selection
 
@@ -80,6 +82,8 @@ const SelectPictures = () => {
     }
     setCurrentScore(currentScore => (currentScore + 1));
   }
+
+  console.log(imageArray[1]);
 
   return (
     <div>

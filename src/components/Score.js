@@ -11,9 +11,7 @@ const Score = (props) => {
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
-    console.log('score use effect');
     if (currentScore > highScore) {
-      console.log('set high score');
       setHighScore(currentScore);
     } 
   }, [currentScore])
