@@ -86,3 +86,21 @@ img {
     flex: 33.33%;
     padding: 1rem;
   }
+
+  .reset {
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bold;
+    float: center;
+    margin-right: 42%;
+    margin-left: 42%;
+    margin-top: 7px;
+    text-align: center;
+    font-size: medium;
+    font-family: sans-serif, 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+  }
+  
+  .reset:hover {
+    background-color: #bce6f3;
+  }

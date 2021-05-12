@@ -45,18 +45,37 @@ const SelectPictures = () => {
     zzPlant,
   ];
 
-  function eliminateDuplicates() {
+  function reset() {
+    setPickImage([]);
+    setUsedImages([]);
+    setCurrentScore(0);
+    setPickImage(pickImage => pickImage.splice(0, 5));
+    eliminateDuplicates();
+  }
+
+  // generates an array of unique images
+
+  function uniqueImage(newImages) {
     for(let i=0; i < 5; i++) {
       let argumentNumber = (Math.floor(Math.random() * 15));
-      setPickImage(pickImage => pickImage.concat(argumentNumber));
-
-      // eliminates duplicate images
-      setPickImage(pickImage => [...new Set(pickImage)]);
+      newImages.push(argumentNumber);
+      let uniqueImages = [...new Set(newImages)];
+      if (i === 4) {return uniqueImages};
     }
   }
 
+  // renders 5 unique image options
+
+  function eliminateDuplicates() {
+    let newImages = [];
+    if (uniqueImage(newImages).length === 5) {
+      setPickImage(newImages)
+    } else {
+      eliminateDuplicates();
+    };
+  }
+
   // generates 5 random pictures
-  // TODO: add more images if duplicates are eliminated
 
   useEffect(() => {
     setPickImage(pickImage => pickImage.splice(0, 5));
@@ -83,8 +102,6 @@ const SelectPictures = () => {
     setCurrentScore(currentScore => (currentScore + 1));
   }
 
-  console.log(imageArray[1]);
-
   return (
     <div>
       <Score
@@ -94,6 +111,7 @@ const SelectPictures = () => {
         imageArray = {imageArray}
         pickImage = {pickImage}
         selectImage = {addImage.bind(this)}
+        reset = {reset}
       />
     </div>
   )

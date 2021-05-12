@@ -8,6 +8,7 @@ const DisplayPictures = (props) => {
     imageArray,
     pickImage,
     selectImage,
+    reset,
   } = props;
 
   return (
@@ -20,6 +21,14 @@ const DisplayPictures = (props) => {
             </button>
           </div>
         ))}
+      </div>
+      <div>
+        <button 
+          className = 'reset'
+          onClick = {reset}
+        >
+          New Game
+        </button>
       </div>
     </div>
   );
