@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/memory-cards/static/css/main.d2714320.chunk.css",
+    "main.js": "/memory-cards/static/js/main.fb35c04b.chunk.js",
+    "main.js.map": "/memory-cards/static/js/main.fb35c04b.chunk.js.map",
+    "runtime-main.js": "/memory-cards/static/js/runtime-main.47959f17.js",
+    "runtime-main.js.map": "/memory-cards/static/js/runtime-main.47959f17.js.map",
+    "static/js/2.6bcc8596.chunk.js": "/memory-cards/static/js/2.6bcc8596.chunk.js",
+    "static/js/2.6bcc8596.chunk.js.map": "/memory-cards/static/js/2.6bcc8596.chunk.js.map",
+    "index.html": "/memory-cards/index.html",
+    "static/css/main.d2714320.chunk.css.map": "/memory-cards/static/css/main.d2714320.chunk.css.map",
+    "static/js/2.6bcc8596.chunk.js.LICENSE.txt": "/memory-cards/static/js/2.6bcc8596.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47959f17.js",
+    "static/js/2.6bcc8596.chunk.js",
+    "static/css/main.d2714320.chunk.css",
+    "static/js/main.fb35c04b.chunk.js"
+  ]
+}
